@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OncoVision | Advanced Tumor Analytics</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <img src="logo/logo.png" alt="OncoVision Logo" class="logo"> 
+</header>
+
+<main class="container">
+  <form id="uploadForm" class="card">
+    <h2>Patient Information</h2>
+    
+    <div class="input-group">
+      <label>CT Scan </label>
+      <input type="file" id="ct" accept="image/*" required>
+    </div>
+
+    <div class="input-group">
+      <label>MRI Scan </label>
+      <input type="file" id="mri" accept="image/*" required>
+    </div>
+
+    <div class="row">
+      <div style="flex: 1;">
+        <label>Age</label>
+        <input type="number" id="age" placeholder="Years" required>
+      </div>
+      <div style="flex: 1;">
+        <label>Sex</label>
+        <select id="sex" required>
+          <option value="">Select</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+    </div>
+
+    <h3>Blood Markers</h3>
+   <div class="blood-grid">
+   <input type="number" step="any" id="hb" placeholder="Hb (g/dL)">
+   <input type="number" step="any" id="wbc" placeholder="WBC (×10⁹/L)">
+   <input type="number" step="any" id="neutrophils" placeholder="Neutrophils (%)">
+   <input type="number" step="any" id="lymphocytes" placeholder="Lymphocytes (%)">
+   <input type="number" step="any" id="platelets" placeholder="Platelets (×10⁹/L)">
+   <input type="number" step="any" id="crp" placeholder="CRP (mg/L)">
+   <input type="number" step="any" id="esr" placeholder="ESR (mm/hr)">
+   <input type="number" step="any" id="glucose" placeholder="Glucose (mg/dL)">
+   <input type="number" step="any" id="creatinine" placeholder="Creatinine (mg/dL)">
+   <input type="number" step="any" id="sodium" placeholder="Sodium (mmol/L)">
+   <input type="number" step="any" id="prolactin" placeholder="Prolactin (ng/mL)">
+   <input type="number" step="any" id="acth" placeholder="ACTH (pg/mL)">
+   <input type="number" step="any" id="cortisol" placeholder="Cortisol (µg/dL)">
+   <input type="number" step="any" id="tsh" placeholder="TSH (mIU/L)">
+   <input type="number" step="any" id="freet4" placeholder="Free T4 (ng/dL)">
+   <input type="number" step="any" id="igf1" placeholder="IGF-1 (ng/mL)">
+</div>
+
+
+    <button type="submit" id="submitBtn">Run Diagnostic Analysis</button>
+  </form>
+
+  <section class="preview-panel">
+    <div class="image-previews">
+      <div class="preview-box">
+        <span class="preview-label">CT PREVIEW</span>
+        <img id="ctPreview" src="#" alt="CT Preview" style="display:none;">
+      </div>
+      <div class="preview-box">
+        <span class="preview-label">MRI PREVIEW</span>
+        <img id="mriPreview" src="#" alt="MRI Preview" style="display:none;">
+      </div>
+    </div>
+
+    <div id="resultCard" class="result-card hidden">
+       <h3>Analysis Insights</h3>
+       <div id="resultContent" class="analysis-text"></div>
+       <div id="probabilities" class="probability-container"></div>
+    </div>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
