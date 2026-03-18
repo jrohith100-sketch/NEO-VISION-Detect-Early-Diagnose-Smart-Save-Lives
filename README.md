@@ -122,12 +122,12 @@ It is not intended for clinical or medical use.
 
 👨‍💻 Author
 
-Rohith J
-Zain Moosaraza
-Priyanka Sharma
+Rohith J,
+Zain Moosaraza,
+Priyanka Sharma,
 
 ⭐ Acknowledgements
 
-Medical imaging datasets (public sources)
-PyTorch community
-Open-source contributors
+Medical imaging datasets (public sources),
+PyTorch community,
+Open-source contributors,
