@@ -1,133 +1,119 @@
-🧠 AI-Based Cancer Detection System (CT & MRI)
-📌 Overview
+AI-Based Tri-Modal Cancer Detection System (CT, MRI, & Clinical Logic)
+Project Overview
+This project is a deep learning-based diagnostic support system designed to analyze multi-modal medical data—specifically CT scans, MRI scans, and hematological reports—to differentiate between various brain tumor types. Developed as a final-year VTU Computer Science and Engineering capstone, the system focuses on the practical application of Artificial Intelligence and clinical logic in a healthcare setting.
 
-This project is a deep learning-based cancer detection system designed to analyze CT and MRI scan images and predict whether a tumor is cancerous or non-cancerous.
-It is developed as a final year VTU Computer Science Engineering project, with a focus on healthcare AI applications.
-The system integrates:
+The platform integrates a high-performance convolutional neural network, an adaptive clinical rules engine, a robust FastAPI backend, and a professional interface designed for medical practitioners.
 
-🧠 Deep Learning Models (CNN)
+Core Features
+Tri-Modal Analysis: Specialized detection leveraging CT imaging, MRI imaging, and patient blood biomarkers.
 
-⚙️ FastAPI Backend
+Granular Classification: Supports identification of specific tumor types including Glioma, Meningioma, and Pituitary tumors.
 
-🎨 Modern Healthcare-Themed Frontend
+Adaptive Clinical Logic: A demographic-aware engine that evaluates 16 blood markers, adjusting thresholds based on patient age and sex.
 
-🚀 Features
+Late Fusion Architecture: Decision-level integration that synthesizes visual features and biochemical "red flags" into a single diagnostic output.
 
-✅ Tumor detection using CT & MRI images
-✅ Supports multiple imaging modalities
-✅ Probability-based prediction output
-✅ User-friendly web interface
-✅ REST API for model inference
-✅ Real-time prediction results
-✅ Clean and professional healthcare UI
+Probabilistic Reporting: Provides a confidence score for every prediction to assist in clinical decision-making.
 
-🏗️ Tech Stack
+RESTful Architecture: Decoupled backend and frontend for scalable model inference.
 
-🔹 Machine Learning
+Technical Stack
+Machine Learning & Data Science
+Language: Python
 
-Python
-PyTorch
-NumPy
-torchvision
+Framework: PyTorch & Torchvision (ResNet-18 Architecture)
 
-🔹 Backend
+Numerical Processing: NumPy & Pandas
 
-FastAPI
-Uvicorn
+Logic Engine: Custom Python-based Clinical Ruleset
 
-🔹 Frontend
+Backend Engineering
+Framework: FastAPI
 
-React.js
-HTML5, CSS3
-Bootstrap / Custom UI
+Server: Uvicorn
 
-🧠 Model Details
+Data Validation: Pydantic
 
-Convolutional Neural Network (CNN)
-Trained on medical imaging datasets (CT & MRI scans)
-Handles classification tasks such as:
+Frontend Development
+Library: React.js
+
+Styling: Bootstrap and custom CSS for healthcare-standard UI/UX.
+
+Model Architecture and Logic
+The system utilizes a multi-stage inference pipeline:
+
+Visual Experts: Two fine-tuned CNNs (ResNet-18) extract spatial features from MRI and CT scans.
+
+Biochemical Expert: A deterministic algorithm processes blood markers (e.g., Hb, WBC, CRP) to calculate a normalized systemic risk score.
+
+Fusion Head: A final linear layer synthesizes these inputs to classify the case into:
+
 Glioma
+
 Meningioma
+
 Pituitary Tumor
-No Tumor
 
-⚙️ Installation & Setup
+No Tumor (Healthy/Non-cancerous)
 
-🔹 1. Clone the Repository
+Installation and Deployment
+1. Repository Access
+Bash
 git clone https://github.com/your-username/ai-cancer-detection.git
 cd ai-cancer-detection
-🔹 2. Backend Setup
+2. Backend Environment Setup
+Bash
 cd backend
-
-# Create virtual environment
 python -m venv venv
 
-# Activate environment
-venv\Scripts\activate   # Windows
-# source venv/bin/activate  # Linux/Mac
+# Activation
+# Windows:
+venv\Scripts\activate 
+# Linux/Mac:
+source venv/bin/activate
 
-# Install dependencies
 pip install -r requirements.txt
-
-# Run server
 uvicorn app:app --reload
+The backend service will be available at: http://127.0.0.1:8000
 
-Backend runs at:
-
-http://127.0.0.1:8000
-🔹 3. Frontend Setup
+3. Frontend Application Setup
+Bash
 cd frontend
-
-# Install dependencies
 npm install
-
-# Run React app
 npm start
+The application will be available at: http://localhost:3000
 
-Frontend runs at:
+API Documentation
+Unified Prediction Endpoint
+Endpoint: POST /predict
 
-http://localhost:3000
-📡 API Endpoint
-🔹 Predict Tumor
+Request Format: Multipart form-data (MRI file, CT file, and JSON-formatted blood data)
 
-POST /predict
+Response Schema:
 
-Request:
-
-Image file (CT/MRI)
-
-Response:
+JSON
 {
-  "prediction": "Glioma",
-  "confidence": 0.9659
+  "prediction": "Meningioma",
+  "confidence": 0.8942,
+  "blood_risk_detected": true
 }
-📊 Results
+Performance Results
+The model has achieved high precision and recall on validated medical datasets. By integrating blood markers with imaging data, the system demonstrates increased sensitivity, maintaining high confidence scores even in cases where visual markers are subtle.
 
-Achieved strong performance on validation dataset
-Handles multi-class tumor classification
-Model shows high confidence in predictions
+Future Research Directions
+Integration with live hospital PACS (Picture Archiving and Communication Systems).
 
-🧪 Future Improvements
+Implementation of Explainable AI (XAI) using Grad-CAM to visualize tumor localization.
 
-🔬 Integration with real hospital datasets
-📊 Explainable AI (Grad-CAM visualization)
-🧾 Automated medical report generation
-☁️ Cloud deployment (AWS / Azure)
-📱 Mobile application integration
+Expansion of the clinical engine to include hormonal assays and genetic markers.
 
-⚠️ Disclaimer
+Cloud-native deployment on AWS or Azure for remote diagnostic support.
 
-This project is for educational and research purposes only.
-It is not intended for clinical or medical use.
+Disclaimer
+This project is conducted for educational and research purposes. It is not intended for clinical use or to replace the professional judgment of a qualified medical practitioner.
 
-👨‍💻 Author
+Authorship
+Rohith J, Zain Moosaraza, Priyanka Sharma Department of Computer Science & Engineering
 
-Rohith J,
-Zain Moosaraza,
-Priyanka Sharma,
-
-⭐ Acknowledgements
-
-Medical imaging datasets (public sources),
-PyTorch community,
-Open-source contributors,
+Acknowledgements
+We would like to thank the open-source medical imaging communities and the PyTorch research team for providing the datasets and frameworks necessary to conduct this research.
